@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TashfeerCipher | Both</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../index.css">
+    <script defer src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="../renderers/render-both.js"></script>
+</head>
+
+<body class="bg-body-secondary">
+    <!-- Header START -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary w-100">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">Tashfeer Cipher</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" id="about-button" href="../index.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" id="substitution-button" href="./substitution.html">Substitution</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" id="transposition-button" href="./transposition.html">Transposition</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-5 active" active id="both-button" href="./both.html"
+                            aria-current="page">Both</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Header END -->
+
+    <!-- Toast START -->
+    <div class="toast align-items-center text-bg-primary border-0 position-fixed bottom-0 end-0 p-3" role="alert"
+        aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body"></div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+    </div>
+    <!-- Toast END -->
+
+    <!-- Loader START -->
+    <div class="d-flex justify-content-center align-items-center position-fixed top-0 start-0 w-100 h-100 bg-light bg-opacity-75 d-none"
+        id="loader" style="z-index: 1050;">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <!-- Loader END -->
+
+    <!-- Main Container START -->
+    <div class="row text-center align-items-center justify-content-around vh-100">
+
+        <!-- Encryption Container START -->
+        <div class="col-4 shadow-lg p-3 mb-5 rounded">
+
+            <h1>One Time Pad &amp; Rail Fence Cipher (Encrypt)</h1>
+            <p class="mb-5">Enter the text or file to encrypt with the RFC key.</p>
+
+            <label for="encrypt-input" class="form-label">Enter text to encrypt</label>
+            <textarea class="form-control form-control-lg" type="text" placeholder="Enter text to encrypt"
+                aria-label="Enter text to encrypt" id="encrypt-input"></textarea>
+
+            <div class="mt-3">
+                <label for="encrypt-file" class="form-label">Enter file to encrypt</label>
+                <input class="form-control form-control-lg" id="encrypt-file" type="file">
+            </div>
+
+
+            <label for="encrypt-key-input" class="form-label">Enter the RFC key to encrypt</label>
+            <input class="form-control form-control-lg" type="text" placeholder="Enter the RFC key"
+                aria-label="Enter the RFC key" id="encrypt-key-input">
+
+            <button type="button" class="btn btn-primary btn-lg mt-3" id="encrypt-button">Encrypt</button>
+
+            <hr class="my-4 border-dark">
+
+            <div class="mb-3 hidden" id="encrypt-output-container">
+                <button type="button" class="btn btn-primary btn-lg mt-3 mb-5" id="copy-key-button">Copy Secret OTP
+                    Key</button>
+
+                <div class="container hidden" id="encrypt-output-text-container">
+                    <label for="encrypt-output" class="form-label">Encrypted Text:</label>
+                    <textarea class="form-control form-control-lg" id="encrypt-output" type="text" readonly></textarea>
+
+                    <button type="button" class="btn btn-primary btn-lg mt-3" id="copy-cipher-button">Copy
+                        Cipher Text</button>
+                </div>
+
+                <div class="container hidden mt-3" id="encrypt-output-file-container">
+                    <input class="form-control form-control-lg" id="cipher-file-name" type="text" readonly>
+                    <button type="button" class="btn btn-primary btn-lg mt-3" id="download-cipher-file-button">Download
+                        Cipher File</button>
+                </div>
+
+            </div>
+        </div>
+        <!-- Encryption Container END -->
+
+        <!-- Decryption Container START -->
+        <div class="col-4 shadow-lg p-3 mb-5 rounded">
+
+            <h1>One Time Pad &amp; Rail Fence Cipher (Decrypt)</h1>
+            <p class="mb-5">Enter the text or file to decrypt and both the RFC key and the OTP key.</p>
+
+            <label for="decrypt-input" class="form-label">Enter text to decrypt</label>
+            <textarea class="form-control form-control-lg" type="text" placeholder="Enter text to decrypt"
+                aria-label="Enter text to decrypt" id="decrypt-input"></textarea>
+
+            <div class="mt-3">
+                <label for="formFileLg" class="form-label">Enter file to decrypt</label>
+                <input class="form-control form-control-lg" id="decrypt-file" type="file">
+            </div>
+
+
+            <label for="decrypt-rfc-key-input" class="form-label mt-3">Enter the RFC key</label>
+            <input class="form-control form-control-lg" type="text" placeholder="Enter the RFC key"
+                aria-label="Enter the RFC key" id="decrypt-rfc-key-input">
+
+            <label for="decrypt-otp-key-input" class="form-label mt-3">Enter the OTP key</label>
+            <input class="form-control form-control-lg" type="text" placeholder="Enter the OTP key"
+                aria-label="Enter the OTP key" id="decrypt-otp-key-input">
+
+            <button type="button" class="btn btn-primary btn-lg mt-3" id="decrypt-button">Decrypt</button>
+
+            <hr class="my-4 border-dark">
+
+            <div class="mb-3 hidden" id="decrypt-output-container">
+                <div class="container hidden" id="decrypt-output-text-container">
+                    <label for="encrypt-output" class="form-label">Decrypted Text:</label>
+                    <textarea class="form-control form-control-lg" id="decrypt-output" type="text" readonly></textarea>
+
+                    <button type="button" class="btn btn-primary btn-lg mt-3" id="copy-plain-button">Copy
+                        Plain Text</button>
+                </div>
+
+                <div class="container hidden mt-3" id="decrypt-output-file-container">
+                    <input class="form-control form-control-lg" id="plain-file-name" type="text" readonly>
+                    <button type="button" class="btn btn-primary btn-lg mt-3" id="download-plain-file-button">Download
+                        Plain Text File</button>
+                </div>
+
+            </div>
+        </div>
+        <!-- Decryption Container END -->
+    </div>
+    <!-- Main Container END -->
+
+
+</body>
+
+</html>

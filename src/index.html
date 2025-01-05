@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Tashfeer Cipher</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <script defer src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="bg-body-secondary">
+  <!-- Header START -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary w-100">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html">Tashfeer Cipher</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active fs-5" id="about-button" href="./index.html" aria-current="page">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5" id="substitution-button" href="./pages/substitution.html">Substitution</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5" id="transposition-button" href="./pages/transposition.html">Transposition</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5" id="both-button" href="./pages/both.html">Both</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Header END -->
+
+  <!-- Main Container START -->
+  <div class="d-flex align-items-center justify-content-center vh-100">
+    <div class="w-50 shadow-lg p-3 mb-5 rounded text-center">
+      <h1>About TashfeerCipher</h1>
+      <p class="lead fw-semibold">
+        TashfeerCipher is an encryption application that provides various encryption methods to secure your data. It
+        supports Rail Fence Cipher, One Time Pad, and a combination of both for enhanced security. The application
+        allows you to encrypt and decrypt both text and files using these methods.
+      </p>
+      <p class="lead fw-semibold">
+        The Rail Fence Cipher is a form of transposition cipher that rearranges the characters of the plaintext to
+        create the ciphertext. The One Time Pad is a substitution cipher that uses a random key for encryption, making
+        it theoretically unbreakable when used correctly.
+      </p>
+      <p class="lead fw-semibold">
+        TashfeerCipher is built using Electron, allowing it to run as a cross-platform desktop application. It leverages
+        modern web technologies such as HTML, CSS, and JavaScript, along with the Bootstrap framework for a responsive
+        and user-friendly interface.
+      </p>
+      <p class="lead fw-semibold">
+        Whether you need to secure sensitive information or simply explore different encryption techniques,
+        TashfeerCipher provides a robust and easy-to-use solution.
+      </p>
+      <p class="lead fw-semibold">
+        For the documentation and code, check the repository on GitHub.
+      </p>
+      <a href="https://github.com/MinoMakh/Substitution-Transposition-Encryption" target="_blank">
+        <svg viewBox="0 0 16 16" version="1.1" width="64" height="64" aria-hidden="true">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Container END -->
+</body>
+
+
+</html>
